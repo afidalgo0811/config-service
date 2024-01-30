@@ -22,6 +22,7 @@ repositories { mavenCentral() }
 extra["springCloudVersion"] = "2022.0.3"
 
 dependencies {
+  implementation("org.springframework.boot:spring-boot-starter-actuator")
   implementation("org.jetbrains.kotlin:kotlin-reflect")
   implementation("org.springframework.cloud:spring-cloud-config-server")
   implementation("org.yaml:snakeyaml:2.0")
@@ -64,5 +65,7 @@ tasks.withType<KotlinCompile> {
     jvmTarget = "17"
   }
 }
+
+springBoot { buildInfo() }
 
 tasks.withType<Test> { useJUnitPlatform() }
